@@ -11,7 +11,13 @@ public class Perceptron {
 
     
     public static void main(String[] args) {
-        
+        int [][] traing_set = new int[][]{
+        {1,0,0,0},
+        {1,0,1,1},
+        {1,1,0,1},
+        {1,1,1,0}};
+               
+                                           
     }
     
 }
