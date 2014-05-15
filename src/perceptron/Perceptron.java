@@ -22,7 +22,8 @@ public class Perceptron {
 
     
     public static void main(String[] args) {
-        
+        double treshold = 0.5;
+        int error = 0;
         double learningRate = 0.1;
         double [] weights = new double []{0.1,0.1,0.1};
         int [][] traing_set = new int[][]{
@@ -44,6 +45,9 @@ public class Perceptron {
                     if(error(traing_set,weightPlusTrain)){
                         
                         weights[j] = weights [j]+ learningRate * (traing_set[i][3] - weightPlusTrain[j])*traing_set[i][j];
+                        error += 1;
+                    }else{
+                        error -= 1;
                     }
                     
                     System.out.print(weights[j]);
@@ -53,7 +57,11 @@ public class Perceptron {
                 System.out.println("---------------------------------");
                 
             }
+            if(error == 0)
+                break;
         }
+        
+        NANDTest.testNand(weights, traing_set);
                
                                            
     }
